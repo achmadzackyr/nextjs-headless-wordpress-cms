@@ -1,28 +1,31 @@
-import { CMS_NAME, CMS_URL } from '../lib/constants'
+import { HOME_URL } from '../lib/constants';
 
-export default function Intro() {
+export default function Intro({ title, description, url }) {
   return (
-    <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
-      <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
-        Blog.
-      </h1>
-      <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">
-        A statically generated blog example using{' '}
-        <a
-          href="https://nextjs.org/"
-          className="underline hover:text-success duration-200 transition-colors"
-        >
-          Next.js
-        </a>{' '}
-        and{' '}
-        <a
-          href={CMS_URL}
-          className="underline hover:text-success duration-200 transition-colors"
-        >
-          {CMS_NAME}
-        </a>
-        .
-      </h4>
+    <section className="flex-col md:flex-row flex items-center md:justify-between mt-4 mb-16 md:mb-12">
+      <div className="flex-col md:flex-row flex items-center">
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tighter leading-tight md:pr-4">
+          <a href={HOME_URL}>{title}</a>
+        </h1>
+        <h4 className="text-center md:text-left text-lg mt-4 md:pl-4">{description}</h4>
+      </div>
+      <div className="flex inline-flex mt-4">
+        <h4 className="text-lg">
+          <a href="#" className="mx-2">
+            Home
+          </a>
+        </h4>
+        <h4 className="text-lg">
+          <a href="#" className="mx-2">
+            Post
+          </a>
+        </h4>
+        <h4 className="text-lg">
+          <a href="#" className="mx-2">
+            Kontak
+          </a>
+        </h4>
+      </div>
     </section>
-  )
+  );
 }

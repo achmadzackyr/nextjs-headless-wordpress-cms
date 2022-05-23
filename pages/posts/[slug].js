@@ -12,10 +12,13 @@ import PostTitle from '../../components/post-title';
 import Head from 'next/head';
 import { CMS_NAME } from '../../lib/constants';
 import Tags from '../../components/tags';
+import parse from 'html-react-parser';
 
 export default function Post({ post, posts, preview }) {
   const router = useRouter();
   const morePosts = posts?.edges;
+  const { seo, video } = post;
+  const yoastHead = parse(seo.fullHead);
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -31,10 +34,8 @@ export default function Post({ post, posts, preview }) {
           <>
             <article>
               <Head>
-                <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
-                </title>
-                <meta property="og:image" content={post.featuredImage?.sourceUrl} />
+                <title>{seo.title}</title>
+                {yoastHead}
               </Head>
               <PostHeader
                 title={post.title}
@@ -42,6 +43,7 @@ export default function Post({ post, posts, preview }) {
                 date={post.date}
                 author={post.author}
                 categories={post.categories}
+                videoUrl={video.url}
               />
               <PostBody content={post.content} />
               <footer>{post.tags.edges.length > 0 && <Tags tags={post.tags} />}</footer>
