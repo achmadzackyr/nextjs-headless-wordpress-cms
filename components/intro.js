@@ -11,7 +11,7 @@ export default function Intro({ title, description, url }) {
       </div>
       <div className="flex inline-flex mt-4">
         <h4 className="text-lg">
-          <a href="#" className="mx-2">
+          <a href={HOME_URL} className="mx-2">
             Home
           </a>
         </h4>
@@ -22,7 +22,12 @@ export default function Intro({ title, description, url }) {
         </h4>
         <h4 className="text-lg">
           <a href="#" className="mx-2">
-            Kontak
+            Category
+          </a>
+        </h4>
+        <h4 className="text-lg">
+          <a href="#" className="mx-2">
+            Contact
           </a>
         </h4>
       </div>
