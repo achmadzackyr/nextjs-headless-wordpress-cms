@@ -10,12 +10,12 @@ import parse from 'html-react-parser';
 export default function Index({ allPosts: { posts, page }, preview, generalSetting }) {
   const heroPost = posts.edges[0]?.node;
   const morePosts = posts.edges.slice(1);
-  const yoastHead = parse(page.seo.fullHead);
+  const yoastHead = parse(page.seo?.fullHead);
 
   return (
     <Layout preview={preview}>
       <Head>
-        <title>{page.seo.title}</title>
+        <title>{page.seo?.title}</title>
         {yoastHead}
       </Head>
       <Container>

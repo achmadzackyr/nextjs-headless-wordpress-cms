@@ -10,15 +10,13 @@ import Layout from '../../components/layout';
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api';
 import PostTitle from '../../components/post-title';
 import Head from 'next/head';
-import { CMS_NAME } from '../../lib/constants';
 import Tags from '../../components/tags';
 import parse from 'html-react-parser';
 
-export default function Post({ post, posts, preview }) {
+export default function Post({ post, posts, preview, seo }) {
   const router = useRouter();
   const morePosts = posts?.edges;
-  const { seo, video } = post;
-  const yoastHead = parse(seo.fullHead);
+  const yoastHead = parse(seo ? seo.fullHead : '');
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -43,7 +41,7 @@ export default function Post({ post, posts, preview }) {
                 date={post.date}
                 author={post.author}
                 categories={post.categories}
-                videoUrl={video.url}
+                videoUrl={post.video.url}
               />
               <PostBody content={post.content} />
               <footer>{post.tags.edges.length > 0 && <Tags tags={post.tags} />}</footer>
@@ -65,7 +63,8 @@ export async function getStaticProps({ params, preview = false, previewData }) {
     props: {
       preview,
       post: data.post,
-      posts: data.posts
+      posts: data.posts,
+      seo: data.post.seo
     }
   };
 }
