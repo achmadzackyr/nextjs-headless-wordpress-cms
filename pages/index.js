@@ -11,6 +11,7 @@ export default function Index({ allPosts: { posts, page }, preview, generalSetti
   const heroPost = posts.edges[0]?.node;
   const morePosts = posts.edges.slice(1);
   const yoastHead = parse(page.seo?.fullHead);
+  const homeContent = parse(page?.content);
 
   return (
     <Layout preview={preview}>
@@ -24,6 +25,7 @@ export default function Index({ allPosts: { posts, page }, preview, generalSetti
           description={generalSetting.description}
           url={generalSetting.url}
         />
+        {homeContent}
         {heroPost && (
           <HeroPost
             title={heroPost.title}
