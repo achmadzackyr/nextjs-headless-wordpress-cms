@@ -4,7 +4,7 @@ export default function MoreStories({ posts }) {
   return (
     <section>
       <h4 className="mb-8 text-3xl md:text-4xl font-bold tracking-tighter leading-tight">
-        Other Posts
+        Post Terbaru
       </h4>
       <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32">
         {posts.map(({ node }) => (

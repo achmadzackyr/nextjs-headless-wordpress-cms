@@ -8,8 +8,8 @@ import { getAllPostsForHome, getGeneralSetting } from '../lib/api';
 import parse from 'html-react-parser';
 
 export default function Index({ allPosts: { posts, page }, preview, generalSetting }) {
-  const heroPost = posts.edges[0]?.node;
-  const morePosts = posts.edges.slice(1);
+  // const heroPost = posts.edges[0]?.node;
+  const morePosts = posts.edges.slice(0);
   const yoastHead = parse(page.seo?.fullHead);
   const homeContent = parse(page?.content);
 
@@ -26,7 +26,7 @@ export default function Index({ allPosts: { posts, page }, preview, generalSetti
           url={generalSetting.url}
         />
         {homeContent}
-        {heroPost && (
+        {/* {heroPost && (
           <HeroPost
             title={heroPost.title}
             coverImage={heroPost.featuredImage}
@@ -35,7 +35,7 @@ export default function Index({ allPosts: { posts, page }, preview, generalSetti
             slug={heroPost.slug}
             excerpt={heroPost.excerpt}
           />
-        )}
+        )} */}
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
       </Container>
     </Layout>

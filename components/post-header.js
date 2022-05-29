@@ -5,10 +5,12 @@ import PostTitle from '../components/post-title';
 import Categories from '../components/categories';
 import YoutubePlayer from '../components/youtube-player';
 
-export default function PostHeader({ title, coverImage, date, author, categories, videoUrl }) {
+export default function PostHeader({ title, coverImage, date, author, categories, videoUrl, uri }) {
   return (
     <>
-      <PostTitle>{title}</PostTitle>
+      <a href={`https://chefotang.com/posts${uri}`}>
+        <PostTitle>{title}</PostTitle>
+      </a>
       <div className="hidden md:block md:mb-12">
         <Avatar author={author} />
       </div>
@@ -24,7 +26,7 @@ export default function PostHeader({ title, coverImage, date, author, categories
           <Avatar author={author} />
         </div>
         <div className="mb-6 text-lg">
-          Posted <Date dateString={date} />
+          Diposting pada <Date dateString={date} />
           <Categories categories={categories} />
         </div>
       </div>

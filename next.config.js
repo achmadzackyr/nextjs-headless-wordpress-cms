@@ -4,7 +4,8 @@ module.exports = {
       // "[yourapp].wpengine.com" (Update this to be your Wordpress application name in order to load images connected to your posts)
       'localhost',
       'secure.gravatar.com',
-      '1.gravatar.com'
+      '1.gravatar.com',
+      'api.chefotang.com'
     ]
   }
 };
