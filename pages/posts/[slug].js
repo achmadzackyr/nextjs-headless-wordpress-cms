@@ -28,9 +28,9 @@ export default function Post({ post, posts, preview, seo, generalSetting }) {
       <Container>
         {/* <Header /> */}
         <Intro
-          title={generalSetting.title}
-          description={generalSetting.description}
-          url={generalSetting.url}
+          title={generalSetting?.title}
+          description={generalSetting?.description}
+          url={generalSetting?.url}
         />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
