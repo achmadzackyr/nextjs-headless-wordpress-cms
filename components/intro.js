@@ -1,6 +1,6 @@
 import { HOME_URL } from '../lib/constants';
 
-export default function Intro({ title, description, url }) {
+export default function Intro({ title, description }) {
   return (
     <section className="flex-col md:flex-row flex items-center md:justify-between mt-4 mb-16 md:mb-12">
       <div className="flex-col md:flex-row flex items-center">
@@ -16,11 +16,11 @@ export default function Intro({ title, description, url }) {
           </a>
         </h4>
         <h4 className="text-lg">
-          <a href="#" className="mx-2">
-            Post
+          <a href={`${HOME_URL}/posts`} className="mx-2">
+            Posts
           </a>
         </h4>
-        <h4 className="text-lg">
+        {/* <h4 className="text-lg">
           <a href="#" className="mx-2">
             Category
           </a>
@@ -29,7 +29,7 @@ export default function Intro({ title, description, url }) {
           <a href="#" className="mx-2">
             Contact
           </a>
-        </h4>
+        </h4> */}
       </div>
     </section>
   );

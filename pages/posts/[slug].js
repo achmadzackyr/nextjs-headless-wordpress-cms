@@ -57,7 +57,7 @@ export default function Post({ post, posts, preview, seo, generalSetting }) {
             </article>
 
             <SectionSeparator />
-            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+            {morePosts.length > 0 && <MoreStories posts={morePosts} title="Post Lainnya" />}
           </>
         )}
       </Container>
