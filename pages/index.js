@@ -4,6 +4,7 @@ import MoreStories from '../components/more-stories';
 import HeroPost from '../components/hero-post';
 import Intro from '../components/intro';
 import Layout from '../components/layout';
+import LinkButton from '../components/link-button';
 import { getAllPostsForHome, getGeneralSetting } from '../lib/api';
 import parse from 'html-react-parser';
 
@@ -39,6 +40,7 @@ export default function Index({ allPosts: { posts, page }, preview, generalSetti
             title="Post Terbaru"
           />
         )}
+        <LinkButton uri="posts" text="Lihat Semua Post" />
       </Container>
     </Layout>
   );
